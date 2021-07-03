@@ -36,10 +36,8 @@ $routes->group('/', function($routes){
 	$routes->get('', 'Auth\Login::index', ['as' => 'home']);
 });
 
-$routes->post('auth/check', 'Auth\Login::signin', ['as' => 'signin']);
-
 $routes->group('auth',['namespace' => 'App\Controllers\Auth'], function($routes){
-	//$routes->post('check', 'Login::signin', ['as' => 'signin']);
+	$routes->post('check', 'Login::signin', ['as' => 'signin']);
 	$routes->get('logout', 'Login::signout', ['as' => 'signout']);
 	$routes->get('dashboard', 'Login::dashboard');
 });
