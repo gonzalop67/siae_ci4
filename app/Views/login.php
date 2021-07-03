@@ -7,6 +7,8 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>SIAE Web 2 | Log in</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/public/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
@@ -33,7 +35,11 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Introduzca sus datos de ingreso</p>
-
+                <?php if (session('msg')) : ?>
+                    <div class="alert alert-<?= session('msg.type') ?>">
+                        <span><i class="icon fas fa-<?= session('msg.icon') ?>"></i> <?= session('msg.body') ?></span>
+                    </div>
+                <?php endif ?>
                 <form id="form-login" action="<?php echo base_url(route_to('signin')); ?>" method="post" autocomplete="off">
                     <div class="input-group mb-2 has-feedback">
                         <input type="text" class="form-control" placeholder="Usuario" id="username" name="username" autofocus>
