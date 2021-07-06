@@ -11,7 +11,7 @@ class UsuarioAdministradorSeeder extends Seeder
 		$data = [
 			'us_titulo'    => 'Ing.',
 			'us_login'     => 'Administrador',
-            'us_password'  => password_hash('Gp67M24e', PASSWORD_DEFAULT),
+            'us_password'  => password_hash('Gp67M24e$', PASSWORD_DEFAULT),
 			'us_apellidos' => 'Peñaherrera Escobar',
 			'us_nombres'   => 'Gonzalo Nicolás',
 			'us_shortname' => 'Ing. Gonzalo Peñaherrera',
