@@ -39,7 +39,7 @@ $routes->group('/', function($routes){
 $routes->group('auth',['namespace' => 'App\Controllers\Auth'], function($routes){
 	$routes->post('check', 'Login::signin', ['as' => 'signin']);
 	$routes->get('logout', 'Login::signout', ['as' => 'signout']);
-	$routes->get('dashboard', 'Login::dashboard');
+	$routes->get('dashboard', 'Login::dashboard', ['as' => 'dashboard']);
 });
 
 /*
