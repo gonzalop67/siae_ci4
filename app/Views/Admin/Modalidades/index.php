@@ -55,7 +55,7 @@ Modalidades
                                         <td>
                                             <div class="btn-group">
                                                 <a href="<?= base_url(route_to('modalidades_edit', $v->id_modalidad)) ?>" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-edit"></i></a>
-                                                <a href="<?= base_url(route_to('modalidades_delete', $v->id_modalidad)) ?>" class="btn btn-danger btn-sm" title="Eliminar"><i class="fa fa-times"></i></a>
+                                                <a href="<?= base_url(route_to('modalidades_delete', $v->id_modalidad)) ?>" class="btn btn-danger btn-sm" title="Eliminar"><i class="fa fa-times-circle"></i></a>
                                             </div>
                                         </td>
                                     </tr>
