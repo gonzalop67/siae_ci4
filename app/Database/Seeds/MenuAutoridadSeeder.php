@@ -50,7 +50,7 @@ class MenuAutoridadSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Malla Curricular', // id_menu = 32
-                'mnu_link'      => '/autoridad/malla_curricular',
+                'mnu_link'      => 'autoridad/malla_curricular',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 1,
                 'mnu_padre'     => 27,
@@ -58,7 +58,7 @@ class MenuAutoridadSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Distributivo', // id_menu = 33
-                'mnu_link'      => '/autoridad/distributivo',
+                'mnu_link'      => 'autoridad/distributivo',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 2,
                 'mnu_padre'     => 27,
@@ -66,7 +66,7 @@ class MenuAutoridadSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Definir Días de la Semana', // id_menu = 34
-                'mnu_link'      => '/autoridad/dias_semana',
+                'mnu_link'      => 'autoridad/dias_semana',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 1,
                 'mnu_padre'     => 28,
@@ -74,7 +74,7 @@ class MenuAutoridadSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Definir Horas Clase', // id_menu = 35
-                'mnu_link'      => '/autoridad/horas_clase',
+                'mnu_link'      => 'autoridad/horas_clase',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 2,
                 'mnu_padre'     => 28,
@@ -82,7 +82,7 @@ class MenuAutoridadSeeder extends Seeder
 			],
             [
 				'mnu_texto'     => 'Asociar Dia-Hora', // id_menu = 36
-                'mnu_link'      => '/autoridad/dia_hora',
+                'mnu_link'      => 'autoridad/dia_hora',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 3,
                 'mnu_padre'     => 28,
@@ -90,7 +90,7 @@ class MenuAutoridadSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Definir Horario Semanal', // id_menu = 37
-                'mnu_link'      => '/autoridad/horario_semanal',
+                'mnu_link'      => 'autoridad/horario_semanal',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 4,
                 'mnu_padre'     => 28,
@@ -98,7 +98,7 @@ class MenuAutoridadSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Definir Inasistencias', // id_menu = 38
-                'mnu_link'      => '/autoridad/inasistencias',
+                'mnu_link'      => 'autoridad/inasistencias',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 5,
                 'mnu_padre'     => 28,
@@ -106,7 +106,7 @@ class MenuAutoridadSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Parciales', // id_menu = 39
-                'mnu_link'      => '/autoridad/reporte_parciales',
+                'mnu_link'      => 'autoridad/reporte_parciales',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 1,
                 'mnu_padre'     => 29,
@@ -114,7 +114,7 @@ class MenuAutoridadSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Quimestrales', // id_menu = 40
-                'mnu_link'      => '/autoridad/reporte_quimestral',
+                'mnu_link'      => 'autoridad/reporte_quimestral',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 2,
                 'mnu_padre'     => 29,
@@ -122,7 +122,7 @@ class MenuAutoridadSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Anuales', // id_menu = 41
-                'mnu_link'      => '/autoridad/reporte_anual',
+                'mnu_link'      => 'autoridad/reporte_anual',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 3,
                 'mnu_padre'     => 29,
@@ -130,7 +130,7 @@ class MenuAutoridadSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Lista de docentes', // id_menu = 42
-                'mnu_link'      => '/autoridad/lista_docentes',
+                'mnu_link'      => 'autoridad/lista_docentes',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 1,
                 'mnu_padre'     => 30,
@@ -138,7 +138,7 @@ class MenuAutoridadSeeder extends Seeder
 			],
             [
 				'mnu_texto'     => 'Horarios de clase', // id_menu = 43
-                'mnu_link'      => '/autoridad/horario_clases',
+                'mnu_link'      => 'autoridad/horario_clases',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 2,
                 'mnu_padre'     => 30,
@@ -146,7 +146,7 @@ class MenuAutoridadSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Aprobados por Paralelo', // id_menu = 44
-                'mnu_link'      => '/autoridad/aprobados_paralelo',
+                'mnu_link'      => 'autoridad/aprobados_paralelo',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 1,
                 'mnu_padre'     => 31,

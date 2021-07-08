@@ -50,7 +50,7 @@
                         <ul class="nav nav-treeview">
                             <?php foreach($model->listarMenusHijos($menu->id_menu) as $menu2) { ?>
                                 <li class="nav-item">
-                                  <a href="<?php echo base_url() . $menu2->mnu_link; ?>" class="nav-link">
+                                  <a href="<?php echo base_url() . '/' . $menu2->mnu_link; ?>" class="nav-link <?= service('request')->uri->getPath() == $menu2->mnu_link ? 'active' : '' ?>">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>
                                       <?php echo $menu2->mnu_texto; ?>
@@ -62,7 +62,7 @@
                     </li> 
                 <?php } else { ?>
                     <li class="nav-item">                        
-                        <a href="<?php echo base_url() . $menu->mnu_link; ?>" class="nav-link">
+                        <a href="<?php echo base_url() . $menu->mnu_link; ?>" class="nav-link <?= service('request')->uri->getPath() == $menu->mnu_link ? 'active' : '' ?>">
                           <i class="nav-icon fas fa-laptop"></i>
                           <p>
                             <?php echo $menu->mnu_texto; ?>

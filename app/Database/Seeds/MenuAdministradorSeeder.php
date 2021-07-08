@@ -50,7 +50,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Modalidades',
-                'mnu_link'      => '/admin/modalidades',
+                'mnu_link'      => 'admin/modalidades',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 1,
                 'mnu_padre'     => 1,
@@ -58,7 +58,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Períodos Lectivos',
-                'mnu_link'      => '/admin/periodos_lectivos',
+                'mnu_link'      => 'admin/periodos_lectivos',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 2,
                 'mnu_padre'     => 1,
@@ -66,7 +66,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Perfiles',
-                'mnu_link'      => '/admin/perfiles',
+                'mnu_link'      => 'admin/perfiles',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 3,
                 'mnu_padre'     => 1,
@@ -74,7 +74,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Menús',
-                'mnu_link'      => '/admin/menus',
+                'mnu_link'      => 'admin/menus',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 4,
                 'mnu_padre'     => 1,
@@ -82,7 +82,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
             [
 				'mnu_texto'     => 'Usuarios',
-                'mnu_link'      => '/admin/usuarios',
+                'mnu_link'      => 'admin/usuarios',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 5,
                 'mnu_padre'     => 1,
@@ -90,7 +90,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Niveles de Educación',
-                'mnu_link'      => '/admin/tipos_educacion',
+                'mnu_link'      => 'admin/tipos_educacion',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 1,
                 'mnu_padre'     => 2,
@@ -98,7 +98,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Especialidades',
-                'mnu_link'      => '/admin/especialidades',
+                'mnu_link'      => 'admin/especialidades',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 2,
                 'mnu_padre'     => 2,
@@ -106,7 +106,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Cursos',
-                'mnu_link'      => '/admin/cursos',
+                'mnu_link'      => 'admin/cursos',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 3,
                 'mnu_padre'     => 2,
@@ -114,7 +114,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Paralelos',
-                'mnu_link'      => '/admin/paralelos',
+                'mnu_link'      => 'admin/paralelos',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 4,
                 'mnu_padre'     => 2,
@@ -122,7 +122,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Areas',
-                'mnu_link'      => '/admin/areas',
+                'mnu_link'      => 'admin/areas',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 5,
                 'mnu_padre'     => 2,
@@ -130,7 +130,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Asignaturas',
-                'mnu_link'      => '/admin/asignaturas',
+                'mnu_link'      => 'admin/asignaturas',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 6,
                 'mnu_padre'     => 2,
@@ -138,7 +138,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
             [
 				'mnu_texto'     => 'Institución',
-                'mnu_link'      => '/admin/institucion',
+                'mnu_link'      => 'admin/institucion',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 7,
                 'mnu_padre'     => 2,
@@ -146,7 +146,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Períodos de Evaluación',
-                'mnu_link'      => '/admin/periodos_evaluacion',
+                'mnu_link'      => 'admin/periodos_evaluacion',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 1,
                 'mnu_padre'     => 3,
@@ -154,7 +154,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Aportes de Evaluación',
-                'mnu_link'      => '/admin/aportes_evaluacion',
+                'mnu_link'      => 'admin/aportes_evaluacion',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 2,
                 'mnu_padre'     => 3,
@@ -162,7 +162,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Insumos de Evaluación',
-                'mnu_link'      => '/admin/rubricas_evaluacion',
+                'mnu_link'      => 'admin/rubricas_evaluacion',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 3,
                 'mnu_padre'     => 3,
@@ -170,7 +170,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Escalas de Calificaciones',
-                'mnu_link'      => '/admin/escalas_calificaciones',
+                'mnu_link'      => 'admin/escalas_calificaciones',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 4,
                 'mnu_padre'     => 3,
@@ -178,7 +178,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Asignaturas Cursos',
-                'mnu_link'      => '/admin/asignaturas_cursos',
+                'mnu_link'      => 'admin/asignaturas_cursos',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 1,
                 'mnu_padre'     => 4,
@@ -186,7 +186,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Curso Superior',
-                'mnu_link'      => '/admin/curso_superior',
+                'mnu_link'      => 'admin/curso_superior',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 2,
                 'mnu_padre'     => 4,
@@ -194,7 +194,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Paralelos Tutores',
-                'mnu_link'      => '/admin/paralelos_tutores',
+                'mnu_link'      => 'admin/paralelos_tutores',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 3,
                 'mnu_padre'     => 4,
@@ -202,7 +202,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Paralelos Inspectores',
-                'mnu_link'      => '/admin/paralelos_inspectores',
+                'mnu_link'      => 'admin/paralelos_inspectores',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 4,
                 'mnu_padre'     => 4,
@@ -210,7 +210,7 @@ class MenuAdministradorSeeder extends Seeder
 			],
 			[
 				'mnu_texto'     => 'Periodos',
-                'mnu_link'      => '/admin/cierre_periodos',
+                'mnu_link'      => 'admin/cierre_periodos',
                 'mnu_nivel'     => 2,
                 'mnu_orden'     => 1,
                 'mnu_padre'     => 5,
