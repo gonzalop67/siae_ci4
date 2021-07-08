@@ -19,4 +19,9 @@ class Modalidades extends BaseController
             'pager' => $this->modalidades->pager
         ]);
     }
+
+    public function create()
+    {
+        return view('Admin/Modalidades/create');
+    }
 }
