@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/layout') ?>
 
 <?= $this->section('titulo') ?>
-Modalidades
+Perfiles
 <?= $this->endsection('titulo') ?>
 
 <?= $this->section('contenido') ?>
@@ -15,11 +15,11 @@ Modalidades
                 <div class="card card-primary mt-2">
                     <div class="card-header">
                         <h3 class="card-title">
-                            Modalidades
+                            Perfiles
                             <small>Listado</small>
                         </h3>
                         <div class="card-tools">
-                            <a class="btn btn-outline-primary btn-sm" href="<?= base_url(route_to('modalidades_create')) ?>"><i class="fa fa-fw fa-plus-circle"></i> Nuevo registro</a>
+                            <a class="btn btn-outline-primary btn-sm" href="<?= base_url(route_to('perfiles_create')) ?>"><i class="fa fa-fw fa-plus-circle"></i> Nuevo registro</a>
                         </div>
                     </div>
                     <!-- /.card-header -->
@@ -34,25 +34,23 @@ Modalidades
                                 <?php endif ?>
                             </div>
                         </div>
-                        <table id="t_modalidades" class="table table-striped table-hover">
+                        <table id="t_perfiles" class="table table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>Id</th>
                                     <th>Nombre</th>
-                                    <th>Activo</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody id="tbody_modalidades">
-                                <?php foreach ($modalidades as $v) : ?>
+                            <tbody id="tbody_perfiles">
+                                <?php foreach ($perfiles as $v) : ?>
                                     <tr>
-                                        <td><?= $v->id_modalidad ?></td>
-                                        <td><?= $v->mo_nombre ?></td>
-                                        <td><?= $v->mo_activo == 1 ? 'Sí' : 'No' ?></td>
+                                        <td><?= $v->id_perfil ?></td>
+                                        <td><?= $v->pe_nombre ?></td>
                                         <td>
                                             <div class="btn-group">
-                                                <a href="<?= base_url(route_to('modalidades_edit', $v->id_modalidad)) ?>" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-edit"></i></a>
-                                                <a href="<?= base_url(route_to('modalidades_delete', $v->id_modalidad)) ?>" class="btn btn-danger btn-sm" title="Eliminar"><i class="fa fa-times-circle"></i></a>
+                                                <a href="<?= base_url(route_to('perfiles_edit', $v->id_perfil)) ?>" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-edit"></i></a>
+                                                <a href="<?= base_url(route_to('perfiles_delete', $v->id_perfil)) ?>" class="btn btn-danger btn-sm" title="Eliminar"><i class="fa fa-times-circle"></i></a>
                                             </div>
                                         </td>
                                     </tr>
