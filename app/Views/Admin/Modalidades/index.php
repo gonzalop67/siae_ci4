@@ -59,7 +59,11 @@ Modalidades
                                 <?php endforeach ?>
                             </tbody>
                         </table>
-                        <?= $pager->links() ?>
+                        <div class="row">
+                            <div class="col-md-12 mt-2">
+                                <?= $pager->links() ?>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- form start -->
