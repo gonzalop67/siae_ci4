@@ -27,23 +27,23 @@ Crear Modalidades
                         </div>
                     </div>
                     <!-- /.card-header -->
-                    <div class="row">
-                        <div class="col-md-12 mt-2">
-                            <?php if (session('msg')) : ?>
-                                <div class="alert alert-<?= session('msg.type') ?> alert-dismissible" style="margin-top: 2px">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    <p><i class="icon fa fa-<?= session('msg.icon') ?>"></i> <?= session('msg.body') ?></p>
-                                </div>
-                            <?php endif ?>
-                        </div>
-                    </div>
                     <!-- form start -->
-                    <form class="form-horizontal" autocomplete="off">
+                    <form class="form-horizontal" action="<?= base_url((route_to('modalidades_store'))) ?>" method="POST" autocomplete="off">
                         <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 mt-2">
+                                    <?php if (session('msg')) : ?>
+                                        <div class="alert alert-<?= session('msg.type') ?> alert-dismissible" style="margin-top: 2px">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                            <p><i class="icon fa fa-<?= session('msg.icon') ?>"></i> <?= session('msg.body') ?></p>
+                                        </div>
+                                    <?php endif ?>
+                                </div>
+                            </div>
                             <div class="form-group row <?= session('errors.mo_nombre') ? 'has-error' : '' ?>">
                                 <label for="mo_nombre" class="col-sm-2 col-form-label requerido">Nombre:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="mo_nombre" id="mo_nombre" value="<?= old('mo_nombre') ?>">
+                                    <input type="text" class="form-control" name="mo_nombre" id="mo_nombre" value="<?= old('mo_nombre') ?>" autofocus>
                                     <span class="help-block"><?= session('errors.mo_nombre') ?></span>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@ Crear Modalidades
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer p-0">
+                        <div class="card-footer">
                             <div class="row">
                                 <div class="col-sm-2"></div>
                                 <div class="col-sm-10">

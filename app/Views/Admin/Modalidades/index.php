@@ -33,7 +33,6 @@ Modalidades
                             <?php endif ?>
                         </div>
                     </div>
-                    <hr>
                     <div class="card-body">
                         <table id="t_modalidades" class="table table-striped table-hover">
                             <thead>
