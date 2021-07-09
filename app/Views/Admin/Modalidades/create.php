@@ -4,6 +4,10 @@
 Crear Modalidades
 <?= $this->endsection('titulo') ?>
 
+<?= $this->section('styles') ?>
+<link rel="stylesheet" href="<?php echo base_url(); ?>/public/css/custom.css">
+<?= $this->endsection('styles') ?>
+
 <?= $this->section('contenido') ?>
 <!-- Main content -->
 <section class="content">
@@ -18,13 +22,11 @@ Crear Modalidades
                             Modalidades
                             <small>Crear</small>
                         </h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="row">
-                        <div class="col-md-2">
-                            <a class="btn btn-primary btn-md mt-2 ml-2" href="<?= base_url(route_to('modalidades')) ?>">Regresar</a>
+                        <div class="card-tools">
+                            <a class="btn btn-outline-success btn-sm" href="<?= base_url(route_to('modalidades')) ?>"><i class="fa fa-fw fa-reply-all"></i> Volver al listado</a>
                         </div>
                     </div>
+                    <!-- /.card-header -->
                     <div class="row">
                         <div class="col-md-12 mt-2">
                             <?php if (session('msg')) : ?>
@@ -35,37 +37,37 @@ Crear Modalidades
                             <?php endif ?>
                         </div>
                     </div>
-                    <hr>
                     <!-- form start -->
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" autocomplete="off">
                         <div class="card-body">
-                            <div class="form-group row">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                            <div class="form-group row <?= session('errors.mo_nombre') ? 'has-error' : '' ?>">
+                                <label for="mo_nombre" class="col-sm-2 col-form-label requerido">Nombre:</label>
                                 <div class="col-sm-10">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                    <input type="text" class="form-control" name="mo_nombre" id="mo_nombre" value="<?= old('mo_nombre') ?>">
+                                    <span class="help-block"><?= session('errors.mo_nombre') ?></span>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                                <label for="mo_activo" class="col-sm-2 col-form-label requerido">Activo:</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                    <select name="mo_activo" id="mo_activo" class="form-control">
+                                        <option value="1">Sí</option>
+                                        <option value="0">No</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <div class="offset-sm-2 col-sm-10">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck2">
-                                        <label class="form-check-label" for="exampleCheck2">Remember me</label>
+                        </div>
+                        <div class="card-footer p-0">
+                            <div class="row">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-10">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success">Guardar</button>
+                                        <button type="reset" class="btn btn-default">Limpiar</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- /.card-body -->
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-info">Sign in</button>
-                            <button type="submit" class="btn btn-default float-right">Cancel</button>
-                        </div>
-                        <!-- /.card-footer -->
                     </form>
                 </div>
             </div>

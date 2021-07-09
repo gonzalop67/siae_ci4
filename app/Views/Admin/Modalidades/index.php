@@ -12,19 +12,17 @@ Modalidades
             <!-- left column -->
             <div class="col-md-12">
                 <!-- Horizontal Form -->
-                <div class="card card-info mt-2">
+                <div class="card card-primary mt-2">
                     <div class="card-header">
                         <h3 class="card-title">
                             Modalidades
                             <small>Listado</small>
                         </h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="row">
-                        <div class="col-md-2">
-                            <a class="btn btn-primary btn-md mt-2 ml-2" href="<?= base_url(route_to('modalidades_create')) ?>">Crear Modalidad</a>
+                        <div class="card-tools">
+                            <a class="btn btn-outline-primary btn-sm" href="<?= base_url(route_to('modalidades_create')) ?>"><i class="fa fa-fw fa-plus-circle"></i> Nuevo registro</a>
                         </div>
                     </div>
+                    <!-- /.card-header -->
                     <div class="row">
                         <div class="col-md-12 mt-2">
                             <?php if (session('msg')) : ?>
