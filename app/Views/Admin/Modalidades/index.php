@@ -23,17 +23,17 @@ Modalidades
                         </div>
                     </div>
                     <!-- /.card-header -->
-                    <div class="row">
-                        <div class="col-md-12 mt-2">
-                            <?php if (session('msg')) : ?>
-                                <div class="alert alert-<?= session('msg.type') ?> alert-dismissible" style="margin-top: 2px">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    <p><i class="icon fa fa-<?= session('msg.icon') ?>"></i> <?= session('msg.body') ?></p>
-                                </div>
-                            <?php endif ?>
-                        </div>
-                    </div>
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 mt-2">
+                                <?php if (session('msg')) : ?>
+                                    <div class="alert alert-<?= session('msg.type') ?> alert-dismissible" style="margin-top: 2px">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <p><i class="icon fa fa-<?= session('msg.icon') ?>"></i> <?= session('msg.body') ?></p>
+                                    </div>
+                                <?php endif ?>
+                            </div>
+                        </div>
                         <table id="t_modalidades" class="table table-striped table-hover">
                             <thead>
                                 <tr>
@@ -61,7 +61,7 @@ Modalidades
                         </table>
                         <?= $pager->links() ?>
                     </div>
-                    
+
                     <!-- form start -->
                     <!-- <form class="form-horizontal">
                         <div class="card-body">
@@ -86,12 +86,12 @@ Modalidades
                                 </div>
                             </div>
                         </div> -->
-                        <!-- /.card-body -->
-                        <!-- <div class="card-footer">
+                    <!-- /.card-body -->
+                    <!-- <div class="card-footer">
                             <button type="submit" class="btn btn-info">Sign in</button>
                             <button type="submit" class="btn btn-default float-right">Cancel</button>
                         </div> -->
-                        <!-- /.card-footer -->
+                    <!-- /.card-footer -->
                     <!-- </form> -->
                 </div>
                 <!-- /.card -->
