@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/layout') ?>
 
 <?= $this->section('titulo') ?>
-Editar Modalidad
+Editar Nivel de Educación
 <?= $this->endsection('titulo') ?>
 
 <?= $this->section('styles') ?>
@@ -19,16 +19,16 @@ Editar Modalidad
                 <div class="card card-warning mt-2">
                     <div class="card-header">
                         <h3 class="card-title">
-                            Modalidades
+                            Niveles de Educación
                             <small>Editar</small>
                         </h3>
                         <div class="card-tools">
-                            <a class="btn btn-outline-warning btn-sm" href="<?= base_url(route_to('modalidades')) ?>"><i class="fa fa-fw fa-reply-all"></i> Volver al listado</a>
+                            <a class="btn btn-outline-warning btn-sm" href="<?= base_url(route_to('tipos_educacion')) ?>"><i class="fa fa-fw fa-reply-all"></i> Volver al listado</a>
                         </div>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" action="<?= base_url((route_to('modalidades_update'))) ?>" method="POST" autocomplete="off">
+                    <form class="form-horizontal" action="<?= base_url((route_to('tipos_educacion_update'))) ?>" method="POST" autocomplete="off">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 mt-2">
@@ -40,20 +40,20 @@ Editar Modalidad
                                     <?php endif ?>
                                 </div>
                             </div>
-                            <input type="hidden" name="id_modalidad" id="id_modalidad" value="<?= $modalidad->id_modalidad ?>">
-                            <div class="form-group row <?= session('errors.mo_nombre') ? 'has-error' : '' ?>">
-                                <label for="mo_nombre" class="col-sm-2 col-form-label requerido">Nombre:</label>
+                            <input type="hidden" name="id_tipo_educacion" id="id_tipo_educacion" value="<?= $tipo_educacion->id_tipo_educacion ?>">
+                            <div class="form-group row <?= session('errors.te_nombre') ? 'has-error' : '' ?>">
+                                <label for="te_nombre" class="col-sm-2 col-form-label requerido">Nombre:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="mo_nombre" id="mo_nombre" value="<?= old('mo_nombre') ?? $modalidad->mo_nombre ?>" autofocus>
-                                    <span class="help-block"><?= session('errors.mo_nombre') ?></span>
+                                    <input type="text" class="form-control" name="te_nombre" id="te_nombre" value="<?= old('te_nombre') ?? $tipo_educacion->te_nombre ?>" autofocus>
+                                    <span class="help-block"><?= session('errors.te_nombre') ?></span>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="mo_activo" class="col-sm-2 col-form-label requerido">Activo:</label>
+                                <label for="te_bachillerato" class="col-sm-2 col-form-label requerido">¿Es Bachillerato?:</label>
                                 <div class="col-sm-10">
-                                    <select name="mo_activo" id="mo_activo" class="form-control">
-                                        <option value="1" <?= old('mo_activo') ?? $modalidad->mo_activo == 1 ? 'selected' : '' ?>>Sí</option>
-                                        <option value="0" <?= old('mo_activo') ?? $modalidad->mo_activo == 0 ? 'selected' : '' ?>>No</option>
+                                    <select name="te_bachillerato" id="te_bachillerato" class="form-control">
+                                        <option value="1" <?= old('te_bachillerato') ?? $tipo_educacion->te_bachillerato == 1 ? 'selected' : '' ?>>Sí</option>
+                                        <option value="0" <?= old('te_bachillerato') ?? $tipo_educacion->te_bachillerato == 0 ? 'selected' : '' ?>>No</option>
                                     </select>
                                 </div>
                             </div>

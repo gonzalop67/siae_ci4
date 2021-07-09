@@ -14,11 +14,13 @@ class InitSeeder extends Seeder
 			'sw_perfil',
             'sw_periodo_estado',
 			'sw_periodo_lectivo',
+			'sw_tipo_educacion',
 			'sw_usuario',
 			'sw_usuario_perfil'
         ]);
 		$this->call('InstitucionSeeder');
 		$this->call('ModalidadSeeder');
+		$this->call('NivelEducacionSeeder');
 		$this->call('PerfilSeeder');
 		$this->call('PeriodoEstadoSeeder');
 		$this->call('PrimerPeriodoLectivoSeeder');
