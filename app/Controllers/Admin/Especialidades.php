@@ -20,13 +20,7 @@ class Especialidades extends BaseController
     public function index()
     {
         return view('Admin/Especialidades/index', [
-            'especialidades' => $this->especialidades
-                                ->join(
-                                    'sw_tipo_educacion',
-                                    'sw_tipo_educacion.id_tipo_educacion = sw_especialidad.id_tipo_educacion'
-                                )->orderBy('es_orden')
-                                ->paginate(config('Blog')->regPerPage),
-            'pager'          => $this->especialidades->pager
+            'especialidades' => $this->especialidades->listarEspecialidades()
         ]);
     }
 

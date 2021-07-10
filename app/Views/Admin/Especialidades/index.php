@@ -61,11 +61,6 @@ Especialidades
                                 <?php endforeach ?>
                             </tbody>
                         </table>
-                        <div class="row">
-                            <div class="col-md-12 mt-2">
-                                <?= $pager->links() ?>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <!-- /.card -->
@@ -75,3 +70,46 @@ Especialidades
 </section>
 <!-- /.content -->
 <?= $this->endsection('contenido') ?>
+
+<?= $this->section('scriptsPlugins') ?>
+<script src="<?php echo base_url(); ?>/public/plugins/jquery-ui/jquery-ui.min.js"></script>
+<?= $this->endsection('scriptsPlugins') ?>
+
+<?= $this->section('scripts') ?>
+<script>
+$(document).ready(function() {
+
+    $('table tbody').sortable({
+        update: function(event, ui) {
+            $(this).children().each(function(index) {
+                if ($(this).attr('data-orden') != (index + 1)) {
+                    $(this).attr('data-orden', (index + 1)).addClass('updated');
+                }
+            });
+            saveNewPositions();
+        }
+    });
+
+});
+
+function saveNewPositions() {
+    var positions = [];
+    $('.updated').each(function() {
+        positions.push([$(this).attr('data-index'), $(this).attr('data-orden')]);
+        $(this).removeClass('updated');
+    });
+
+    $.ajax({
+        url: "<?= base_url(route_to('especialidades_saveNewPositions')) ?>",
+        method: 'POST',
+        dataType: 'text',
+        data: {
+            positions: positions
+        },
+        success: function(response) {
+            console.log(response);
+        }
+    });
+}
+</script>
+<?= $this->endsection('scripts') ?>
