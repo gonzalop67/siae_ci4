@@ -11,6 +11,8 @@ class InitSeeder extends Seeder
 		$this->truncateTablas([
 			'sw_especialidad',
 			'sw_institucion',
+			'sw_menu',
+			'sw_menu_perfil',
 			'sw_modalidad',
 			'sw_perfil',
             'sw_periodo_estado',
