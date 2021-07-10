@@ -15,8 +15,7 @@ class Tipos_educacion extends Controller{
     public function index()
     {
         return view('Admin/Tipos_educacion/index', [
-            'tipos_educacion' => $this->tipos_educacion->orderBy('te_orden')->paginate(config('Blog')->regPerPage),
-            'pager' => $this->tipos_educacion->pager
+            'tipos_educacion' => $this->tipos_educacion->listarNivelesEducacion()
         ]);
     }
 

@@ -59,11 +59,6 @@ Niveles de Educación
                                 <?php endforeach ?>
                             </tbody>
                         </table>
-                        <div class="row">
-                            <div class="col-md-12 mt-2">
-                                <?= $pager->links() ?>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <!-- /.card -->

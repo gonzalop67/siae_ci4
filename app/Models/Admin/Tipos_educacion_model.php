@@ -13,6 +13,16 @@ class Tipos_educacion_model extends Model{
 
     protected $allowedFields = ['te_nombre', 'te_bachillerato', 'te_orden'];
 
+    public function listarNivelesEducacion()
+    {
+        $nivelesEducacion = $this->db->query('
+            SELECT *
+              FROM sw_tipo_educacion 
+             ORDER BY te_orden
+            ');
+        return $nivelesEducacion->getResult();
+    }
+
     public function actualizarOrden($id_tipo_educacion, $te_orden)
     {
       $this->db->query("UPDATE sw_tipo_educacion SET te_orden = $te_orden WHERE id_tipo_educacion = $id_tipo_educacion");
