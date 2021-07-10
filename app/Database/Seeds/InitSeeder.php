@@ -9,6 +9,7 @@ class InitSeeder extends Seeder
 	public function run()
 	{
 		$this->truncateTablas([
+			'sw_especialidad',
 			'sw_institucion',
 			'sw_modalidad',
 			'sw_perfil',
@@ -21,6 +22,7 @@ class InitSeeder extends Seeder
 		$this->call('InstitucionSeeder');
 		$this->call('ModalidadSeeder');
 		$this->call('NivelEducacionSeeder');
+		$this->call('EspecialidadSeeder');
 		$this->call('PerfilSeeder');
 		$this->call('PeriodoEstadoSeeder');
 		$this->call('PrimerPeriodoLectivoSeeder');
