@@ -11,6 +11,7 @@ class InitSeeder extends Seeder
 		$this->truncateTablas([
 			'sw_especialidad',
 			'sw_institucion',
+			'sw_jornada',
 			'sw_menu',
 			'sw_menu_perfil',
 			'sw_modalidad',
@@ -22,6 +23,7 @@ class InitSeeder extends Seeder
 			'sw_usuario_perfil'
         ]);
 		$this->call('InstitucionSeeder');
+		$this->call('Jornada');
 		$this->call('ModalidadSeeder');
 		$this->call('NivelEducacionSeeder');
 		$this->call('EspecialidadSeeder');
