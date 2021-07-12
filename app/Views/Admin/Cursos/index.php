@@ -19,7 +19,7 @@ Cursos
                             <small>Listado</small>
                         </h3>
                         <div class="card-tools">
-                            <a class="btn btn-outline-primary btn-sm" href="<?= base_url(route_to('especialidades_create')) ?>"><i class="fa fa-fw fa-plus-circle"></i> Nuevo registro</a>
+                            <a class="btn btn-outline-primary btn-sm" href="<?= base_url(route_to('cursos_create')) ?>"><i class="fa fa-fw fa-plus-circle"></i> Nuevo registro</a>
                         </div>
                     </div>
                     <!-- /.card-header -->
@@ -58,15 +58,15 @@ Cursos
                                     <td><?= $v->te_nombre ?></td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="<?= base_url(route_to('cursos_edit', $v->id_curso)) ?>" class="btn btn-warning btn-sm" title="Editar"><span class="fa fa-pencil"></span></a>
-                                            <a href="<?= base_url(route_to('cursos_delete', $v->id_curso)) ?>" class="btn btn-danger btn-sm" title="Eliminar"><span class="fa fa-remove"></span></a>
+                                            <a href="<?= base_url(route_to('cursos_edit', $v->id_curso)) ?>" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-edit"></i></a>
+                                            <a href="<?= base_url(route_to('cursos_delete', $v->id_curso)) ?>" class="btn btn-danger btn-sm" title="Eliminar"><i class="fa fa-times-circle"></i></a>
                                         </div>
                                     </td>
                                 </tr>
                         <?php   $cont++; 
                                 endforeach;
                             } else {
-                                echo "<tr><td colspan='6' align='center'>No se han ingresado curso todavía.</td></tr>";
+                                echo "<tr><td colspan='6' align='center'>No se han ingresado cursos todavía.</td></tr>";
                             }
                         ?>
                         </tbody>
