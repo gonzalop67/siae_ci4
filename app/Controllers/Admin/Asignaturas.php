@@ -16,37 +16,6 @@ class Asignaturas extends Controller{
         $this->areas = new Areas_model();
         $this->asignaturas = new Asignaturas_model();
         $this->tipos_asignatura = new Tipos_asignatura_model();
-
-        $this->reglas = [
-            'as_nombre' => [
-                'rules' => 'required|max_length[84]',
-                'errors' => [
-                    'required'   => 'El campo Nombre es obligatorio.',
-                    'max_length' => 'El campo Nombre no debe exceder los 84 caracteres.'
-                ]
-            ],
-            'as_abreviatura' => [
-                'rules' => 'required|max_length[12]',
-                'errors' => [
-                    'required'   => 'El campo Abreviatura es obligatorio.',
-                    'max_length' => 'El campo Abreviatura no debe exceder los 12 caracteres.'
-                ]
-            ],
-            'id_tipo_asignatura' => [
-                'rules' => 'required|is_not_unique[sw_tipo_asignatura.id_tipo_asignatura]',
-                'errors' => [
-                    'required' => 'El campo Tipo Asignatura es obligatorio.',
-                    'is_not_unique' => 'No existe la opción elegida en la base de datos.'
-                ]
-            ],
-            'id_area' => [
-                'rules' => 'required|is_not_unique[sw_area.id_area]',
-                'errors' => [
-                    'required' => 'El campo Area es obligatorio.',
-                    'is_not_unique' => 'No existe la opción elegida en la base de datos.'
-                ]
-            ]
-        ];
     }
 
     public function index()
@@ -78,7 +47,40 @@ class Asignaturas extends Controller{
 
     public function store()
     {
-        if (!$this->validate($this->reglas)) 
+        $reglas = [
+            'as_nombre' => [
+                'rules' => 'required|max_length[84]|is_unique[sw_asignatura.as_nombre]',
+                'errors' => [
+                    'required'   => 'El campo Nombre es obligatorio.',
+                    'max_length' => 'El campo Nombre no debe exceder los 84 caracteres.',
+                    'is_unique'  => 'El campo Nombre debe ser único.'
+                ]
+            ],
+            'as_abreviatura' => [
+                'rules' => 'required|max_length[12]|is_unique[sw_asignatura.as_abreviatura]',
+                'errors' => [
+                    'required'   => 'El campo Abreviatura es obligatorio.',
+                    'max_length' => 'El campo Abreviatura no debe exceder los 12 caracteres.',
+                    'is_unique'  => 'El campo Nombre debe ser único.'
+                ]
+            ],
+            'id_tipo_asignatura' => [
+                'rules' => 'required|is_not_unique[sw_tipo_asignatura.id_tipo_asignatura]',
+                'errors' => [
+                    'required' => 'El campo Tipo Asignatura es obligatorio.',
+                    'is_not_unique' => 'No existe la opción elegida en la base de datos.'
+                ]
+            ],
+            'id_area' => [
+                'rules' => 'required|is_not_unique[sw_area.id_area]',
+                'errors' => [
+                    'required' => 'El campo Area es obligatorio.',
+                    'is_not_unique' => 'No existe la opción elegida en la base de datos.'
+                ]
+            ]
+        ];
+
+        if (!$this->validate($reglas)) 
         {
             return redirect()->back()->withInput()
                 ->with('msg', [
@@ -118,7 +120,54 @@ class Asignaturas extends Controller{
 
     public function update()
     {
-        if (!$this->validate($this->reglas)) 
+        $asignatura = $this->asignaturas->find($_POST['id_asignatura']);
+
+        if ($asignatura->as_nombre != $_POST['as_nombre']) {
+            $is_unique = '|is_unique[sw_asignatura.as_nombre]';
+        } else {
+            $is_unique = '';
+        }
+
+        if ($asignatura->as_abreviatura != $_POST['as_abreviatura']) {
+            $is_unique2 = '|is_unique[sw_asignatura.as_abreviatura]';
+        } else {
+            $is_unique2 = '';
+        }
+
+        $reglas = [
+            'as_nombre' => [
+                'rules' => 'required|max_length[84]' . $is_unique,
+                'errors' => [
+                    'required'   => 'El campo Nombre es obligatorio.',
+                    'max_length' => 'El campo Nombre no debe exceder los 84 caracteres.',
+                    'is_unique'  => 'El campo Nombre debe ser único'
+                ]
+            ],
+            'as_abreviatura' => [
+                'rules' => 'required|max_length[12]' . $is_unique2,
+                'errors' => [
+                    'required'   => 'El campo Abreviatura es obligatorio.',
+                    'max_length' => 'El campo Abreviatura no debe exceder los 12 caracteres.',
+                    'is_unique'  => 'El campo Abreviatura debe ser único'
+                ]
+            ],
+            'id_tipo_asignatura' => [
+                'rules' => 'required|is_not_unique[sw_tipo_asignatura.id_tipo_asignatura]',
+                'errors' => [
+                    'required' => 'El campo Tipo Asignatura es obligatorio.',
+                    'is_not_unique' => 'No existe la opción elegida en la base de datos.'
+                ]
+            ],
+            'id_area' => [
+                'rules' => 'required|is_not_unique[sw_area.id_area]',
+                'errors' => [
+                    'required' => 'El campo Area es obligatorio.',
+                    'is_not_unique' => 'No existe la opción elegida en la base de datos.'
+                ]
+            ]
+        ];
+
+        if (!$this->validate($reglas)) 
         {
             return redirect()->back()->withInput()
                 ->with('msg', [
