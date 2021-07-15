@@ -55,8 +55,8 @@ Asignaturas
                                         <td><?= $v->as_abreviatura ?></td>
                                         <td>
                                             <div class="btn-group">
-                                                <a href="<?= base_url(route_to('asignaturas_edit', $v->id_area)) ?>" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-edit"></i></a>
-                                                <a href="<?= base_url(route_to('asignaturas_delete', $v->id_area)) ?>" class="btn btn-danger btn-sm" title="Eliminar"><i class="fa fa-times-circle"></i></a>
+                                                <a href="<?= base_url(route_to('asignaturas_edit', $v->id_asignatura)) ?>" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-edit"></i></a>
+                                                <a href="<?= base_url(route_to('asignaturas_delete', $v->id_asignatura)) ?>" class="btn btn-danger btn-sm" title="Eliminar"><i class="fa fa-times-circle"></i></a>
                                             </div>
                                         </td>
                                     </tr>

@@ -28,7 +28,7 @@ Crear Asignatura
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" action="<?= base_url((route_to('asignaturas_store'))) ?>" method="POST" autocomplete="off">
+                    <form class="form-horizontal" action="<?= base_url((route_to('asignaturas_update'))) ?>" method="POST" autocomplete="off">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 mt-2">
@@ -40,17 +40,18 @@ Crear Asignatura
                                     <?php endif ?>
                                 </div>
                             </div>
+                            <input type="hidden" name="id_asignatura" value="<?= $asignatura->id_asignatura ?>">
                             <div class="form-group row <?= session('errors.as_nombre') ? 'has-error' : '' ?>">
                                 <label for="as_nombre" class="col-sm-2 col-form-label requerido">Nombre:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="as_nombre" id="as_nombre" value="<?= old('as_nombre') ?>" autofocus>
+                                    <input type="text" class="form-control" name="as_nombre" id="as_nombre" value="<?= old('as_nombre') ?? $asignatura->as_nombre ?>" autofocus>
                                     <span class="help-block"><?= session('errors.as_nombre') ?></span>
                                 </div>
                             </div>
                             <div class="form-group row <?= session('errors.as_abreviatura') ? 'has-error' : '' ?>">
                                 <label for="mo_nombre" class="col-sm-2 col-form-label requerido">Abreviatura:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="as_abreviatura" id="as_abreviatura" value="<?= old('as_abreviatura') ?>" autofocus>
+                                    <input type="text" class="form-control" name="as_abreviatura" id="as_abreviatura" value="<?= old('as_abreviatura') ?? $asignatura->as_abreviatura ?>" autofocus>
                                     <span class="help-block"><?= session('errors.as_abreviatura') ?></span>
                                 </div>
                             </div>
@@ -60,7 +61,19 @@ Crear Asignatura
                                     <select name="id_tipo_asignatura" id="id_tipo_asignatura" class="form-control">
                                         <option value="">Seleccione...</option>
                                         <?php foreach ($tipos_asignatura as $tipo_asignatura) : ?>
-                                            <option value="<?= $tipo_asignatura->id_tipo_asignatura; ?>" <?= old('id_tipo_asignatura') == $tipo_asignatura->id_tipo_asignatura ? 'selected' : '' ?>><?= $tipo_asignatura->ta_descripcion; ?></option>
+                                            <?php
+                                            $selected = '';
+                                            if (!empty(old('id_tipo_asignatura'))) {
+                                                if (old('id_tipo_asignatura') == $tipo_asignatura->id_tipo_asignatura) {
+                                                    $selected = 'selected';
+                                                }
+                                            } else {
+                                                if ($asignatura->id_tipo_asignatura == $tipo_asignatura->id_tipo_asignatura) {
+                                                    $selected = 'selected';
+                                                }
+                                            }
+                                            ?>
+                                            <option value="<?= $tipo_asignatura->id_tipo_asignatura; ?>" <?= $selected ?>><?= $tipo_asignatura->ta_descripcion; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <span class="help-block"><?= session('errors.id_tipo_asignatura') ?></span>
@@ -72,7 +85,19 @@ Crear Asignatura
                                     <select name="id_area" id="id_area" class="form-control">
                                         <option value="">Seleccione...</option>
                                         <?php foreach ($areas as $area) : ?>
-                                            <option value="<?= $area->id_area; ?>" <?= old('id_area') == $area->id_area ? 'selected' : '' ?>><?= $area->ar_nombre; ?></option>
+                                            <?php
+                                            $selected = '';
+                                            if (!empty(old('id_area'))) {
+                                                if (old('id_area') == $area->id_area) {
+                                                    $selected = 'selected';
+                                                }
+                                            } else {
+                                                if ($asignatura->id_area == $area->id_area) {
+                                                    $selected = 'selected';
+                                                }
+                                            }
+                                            ?>
+                                            <option value="<?= $area->id_area; ?>" <?= $selected ?>><?= $area->ar_nombre; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <span class="help-block"><?= session('errors.id_area') ?></span>
@@ -84,8 +109,7 @@ Crear Asignatura
                                 <div class="col-sm-2"></div>
                                 <div class="col-sm-10">
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-success">Guardar</button>
-                                        <button type="button" class="btn btn-default" onclick="limpiar()">Limpiar</button>
+                                        <button type="submit" class="btn btn-success">Actualizar</button>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +122,3 @@ Crear Asignatura
 </section>
 <!-- /.content -->
 <?= $this->endsection('contenido') ?>
-
-<?= $this->section('scripts') ?>
-<script src="<?php echo base_url(); ?>/public/js/admin/asignaturas/crear.js"></script>
-<?= $this->endsection('scripts') ?>
