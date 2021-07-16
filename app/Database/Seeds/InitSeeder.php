@@ -21,6 +21,7 @@ class InitSeeder extends Seeder
 			'sw_perfil',
             'sw_periodo_estado',
 			'sw_periodo_lectivo',
+			'sw_tipo_aporte',
 			'sw_tipo_asignatura',
 			'sw_tipo_educacion',
 			'sw_tipo_periodo',
@@ -40,6 +41,7 @@ class InitSeeder extends Seeder
 		$this->call('TipoAsignaturaSeeder');
 		$this->call('TipoPeriodoSeeder');
 		$this->call('PeriodoEvaluacionSeeder');
+		$this->call('TipoAporteSeeder');
 		$this->call('UsuarioAdministradorSeeder');
 		$this->call('MenuAdministradorSeeder');
         $this->call('MenuAutoridadSeeder');
