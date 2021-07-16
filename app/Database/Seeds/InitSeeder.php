@@ -30,7 +30,7 @@ class InitSeeder extends Seeder
         ]);
 		$this->call('AreaSeeder');
 		$this->call('InstitucionSeeder');
-		$this->call('Jornada');
+		$this->call('JornadaSeeder');
 		$this->call('ModalidadSeeder');
 		$this->call('NivelEducacionSeeder');
 		$this->call('EspecialidadSeeder');
