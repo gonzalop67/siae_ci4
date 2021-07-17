@@ -15,6 +15,30 @@ class Periodos_evaluacion extends BaseController
     {
         $this->periodos_evaluacion = new Periodos_evaluacion_model();
         $this->tipos_periodo = new Tipos_periodo_model();
+
+        $this->reglas = [
+            'pe_nombre' => [
+                'rules' => 'required|max_length[24]',
+                'errors' => [
+                    'required'   => 'El campo Nombre es obligatorio.',
+                    'max_length' => 'El campo Nombre no debe exceder los 24 caracteres.'
+                ]
+            ],
+            'pe_abreviatura' => [
+                'rules' => 'required|max_length[6]',
+                'errors' => [
+                    'required'   => 'El campo Abreviatura es obligatorio.',
+                    'max_length' => 'El campo Abreviatura no debe exceder los 6 caracteres.'
+                ]
+            ],
+            'id_tipo_periodo' => [
+                'rules' => 'required|is_not_unique[sw_tipo_periodo.id_tipo_periodo]',
+                'errors' => [
+                    'required' => 'El campo Tipo Periodo es obligatorio.',
+                    'is_not_unique' => 'No existe la opción elegida en la base de datos.'
+                ]
+            ]
+        ];
     }
 
     public function index()
@@ -36,33 +60,7 @@ class Periodos_evaluacion extends BaseController
 
     public function store()
     {
-        $reglas = [
-            'pe_nombre' => [
-                'rules' => 'required|max_length[24]|is_unique[sw_periodo_evaluacion.pe_nombre]',
-                'errors' => [
-                    'required'   => 'El campo Nombre es obligatorio.',
-                    'max_length' => 'El campo Nombre no debe exceder los 24 caracteres.',
-                    'is_unique'  => 'El campo Nombre debe ser único.'
-                ]
-            ],
-            'pe_abreviatura' => [
-                'rules' => 'required|max_length[6]|is_unique[sw_periodo_evaluacion.pe_abreviatura]',
-                'errors' => [
-                    'required'   => 'El campo Abreviatura es obligatorio.',
-                    'max_length' => 'El campo Abreviatura no debe exceder los 6 caracteres.',
-                    'is_unique'  => 'El campo Abreviatura debe ser único.'
-                ]
-            ],
-            'id_tipo_periodo' => [
-                'rules' => 'required|is_not_unique[sw_tipo_periodo.id_tipo_periodo]',
-                'errors' => [
-                    'required' => 'El campo Tipo Periodo es obligatorio.',
-                    'is_not_unique' => 'No existe la opción elegida en la base de datos.'
-                ]
-            ]
-        ];
-
-        if (!$this->validate($reglas)) 
+        if (!$this->validate($this->reglas)) 
         {
             return redirect()->back()->withInput()
                 ->with('msg', [
@@ -101,47 +99,7 @@ class Periodos_evaluacion extends BaseController
 
     public function update()
     {
-        $periodo_evaluacion = $this->periodos_evaluacion->find($_POST['id_periodo_evaluacion']);
-
-        if ($periodo_evaluacion->pe_nombre != $_POST['pe_nombre']) {
-            $is_unique = '|is_unique[sw_periodo_evaluacion.pe_nombre]';
-        } else {
-            $is_unique = '';
-        }
-
-        if ($periodo_evaluacion->pe_abreviatura != $_POST['pe_abreviatura']) {
-            $is_unique2 = '|is_unique[sw_periodo_evaluacion.pe_abreviatura]';
-        } else {
-            $is_unique2 = '';
-        }
-
-        $reglas = [
-            'pe_nombre' => [
-                'rules' => 'required|max_length[24]' . $is_unique,
-                'errors' => [
-                    'required'   => 'El campo Nombre es obligatorio.',
-                    'max_length' => 'El campo Nombre no debe exceder los 24 caracteres.',
-                    'is_unique'  => 'El campo Nombre debe ser único.'
-                ]
-            ],
-            'pe_abreviatura' => [
-                'rules' => 'required|max_length[6]' . $is_unique2,
-                'errors' => [
-                    'required'   => 'El campo Abreviatura es obligatorio.',
-                    'max_length' => 'El campo Abreviatura no debe exceder los 6 caracteres.',
-                    'is_unique'  => 'El campo Abreviatura debe ser único.'
-                ]
-            ],
-            'id_tipo_periodo' => [
-                'rules' => 'required|is_not_unique[sw_tipo_periodo.id_tipo_periodo]',
-                'errors' => [
-                    'required' => 'El campo Tipo Periodo es obligatorio.',
-                    'is_not_unique' => 'No existe la opción elegida en la base de datos.'
-                ]
-            ]
-        ];
-
-        if (!$this->validate($reglas)) 
+        if (!$this->validate($this->reglas)) 
         {
             return redirect()->back()->withInput()
                 ->with('msg', [
