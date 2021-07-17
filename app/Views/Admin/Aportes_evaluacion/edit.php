@@ -18,19 +18,19 @@ Aportes de Evaluación
             <!-- left column -->
             <div class="col-md-12">
                 <!-- Horizontal Form -->
-                <div class="card card-success mt-2">
+                <div class="card card-warning mt-2">
                     <div class="card-header">
                         <h3 class="card-title">
                             Aportes de Evaluación
-                            <small>Crear</small>
+                            <small>Editar</small>
                         </h3>
                         <div class="card-tools">
-                            <a class="btn btn-outline-success btn-sm" href="<?= base_url(route_to('aportes_evaluacion')) ?>"><i class="fa fa-fw fa-reply-all"></i> Volver al listado</a>
+                            <a class="btn btn-outline-warning btn-sm" href="<?= base_url(route_to('aportes_evaluacion')) ?>"><i class="fa fa-fw fa-reply-all"></i> Volver al listado</a>
                         </div>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" action="<?= base_url((route_to('aportes_evaluacion_store'))) ?>" method="POST" autocomplete="off">
+                    <form class="form-horizontal" action="<?= base_url((route_to('aportes_evaluacion_update'))) ?>" method="POST" autocomplete="off">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 mt-2">
@@ -42,17 +42,18 @@ Aportes de Evaluación
                                     <?php endif ?>
                                 </div>
                             </div>
+                            <input type="hidden" name="id_aporte_evaluacion" value="<?= $aporte_evaluacion->id_aporte_evaluacion ?>">
                             <div class="form-group row <?= session('errors.ap_nombre') ? 'has-error' : '' ?>">
                                 <label for="ap_nombre" class="col-sm-2 col-form-label requerido">Nombre:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="ap_nombre" id="ap_nombre" value="<?= old('ap_nombre') ?>" autofocus>
+                                    <input type="text" class="form-control" name="ap_nombre" id="ap_nombre" value="<?= old('ap_nombre') ?? $aporte_evaluacion->ap_nombre ?>" autofocus>
                                     <span class="help-block"><?= session('errors.ap_nombre') ?></span>
                                 </div>
                             </div>
                             <div class="form-group row <?= session('errors.ap_abreviatura') ? 'has-error' : '' ?>">
                                 <label for="mo_nombre" class="col-sm-2 col-form-label requerido">Abreviatura:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="ap_abreviatura" id="ap_abreviatura" value="<?= old('ap_abreviatura') ?>">
+                                    <input type="text" class="form-control" name="ap_abreviatura" id="ap_abreviatura" value="<?= old('ap_abreviatura') ?? $aporte_evaluacion->ap_abreviatura ?>">
                                     <span class="help-block"><?= session('errors.ap_abreviatura') ?></span>
                                 </div>
                             </div>
@@ -63,7 +64,7 @@ Aportes de Evaluación
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" style="cursor: pointer;"><i class="far fa-calendar-alt" onclick="$('#ap_fecha_apertura').focus();"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" name="ap_fecha_apertura" id="ap_fecha_apertura" value="<?= old('ap_fecha_apertura') ?>">
+                                        <input type="text" class="form-control" name="ap_fecha_apertura" id="ap_fecha_apertura" value="<?= old('ap_fecha_apertura') ?? $aporte_evaluacion->ap_fecha_apertura ?>">
                                     </div>
                                     <!-- /.input group -->
                                     <span class="help-block"><?= session('errors.ap_fecha_apertura') ?></span>
@@ -76,7 +77,7 @@ Aportes de Evaluación
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" style="cursor: pointer;"><i class="far fa-calendar-alt" onclick="$('#ap_fecha_cierre').focus();"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" name="ap_fecha_cierre" id="ap_fecha_cierre" value="<?= old('ap_fecha_cierre') ?>">
+                                        <input type="text" class="form-control" name="ap_fecha_cierre" id="ap_fecha_cierre" value="<?= old('ap_fecha_cierre') ?? $aporte_evaluacion->ap_fecha_cierre ?>">
                                     </div>
                                     <!-- /.input group -->
                                     <span class="help-block"><?= session('errors.ap_fecha_cierre') ?></span>
@@ -88,7 +89,7 @@ Aportes de Evaluación
                                     <select name="id_periodo_evaluacion" id="id_periodo_evaluacion" class="form-control">
                                         <option value="">Seleccione...</option>
                                         <?php foreach ($periodos_evaluacion as $v) : ?>
-                                            <option value="<?= $v->id_periodo_evaluacion; ?>" <?= old('id_periodo_evaluacion') == $v->id_periodo_evaluacion ? 'selected' : '' ?>><?= $v->pe_nombre; ?></option>
+                                            <option value="<?= $v->id_periodo_evaluacion; ?>" <?= old('id_periodo_evaluacion') == $v->id_periodo_evaluacion ? 'selected' : ($v->id_periodo_evaluacion == $aporte_evaluacion->id_periodo_evaluacion ? 'selected' : '') ?>><?= $v->pe_nombre; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <span class="help-block"><?= session('errors.id_periodo_evaluacion') ?></span>
@@ -100,7 +101,7 @@ Aportes de Evaluación
                                     <select name="id_tipo_aporte" id="id_tipo_aporte" class="form-control">
                                         <option value="">Seleccione...</option>
                                         <?php foreach ($tipos_aporte as $v) : ?>
-                                            <option value="<?= $v->id_tipo_aporte; ?>" <?= old('id_tipo_aporte') == $v->id_tipo_aporte ? 'selected' : '' ?>><?= $v->ta_descripcion; ?></option>
+                                            <option value="<?= $v->id_tipo_aporte; ?>" <?= old('id_tipo_aporte') == $v->id_tipo_aporte ? 'selected' : ($v->id_tipo_aporte == $aporte_evaluacion->id_tipo_aporte ? 'selected' : '') ?>><?= $v->ta_descripcion; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <span class="help-block"><?= session('errors.id_tipo_aporte') ?></span>
@@ -113,8 +114,7 @@ Aportes de Evaluación
                         <div class="col-sm-2"></div>
                         <div class="col-sm-10">
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success">Guardar</button>
-                                <button type="button" class="btn btn-default" onclick="limpiar()">Limpiar</button>
+                                <button type="submit" class="btn btn-success">Actualizar</button>
                             </div>
                         </div>
                     </div>
@@ -127,10 +127,6 @@ Aportes de Evaluación
 </section>
 <!-- /.content -->
 <?= $this->endsection('contenido') ?>
-
-<?= $this->section('scripts') ?>
-<script src="<?php echo base_url(); ?>/public/js/admin/areas/crear.js"></script>
-<?= $this->endsection('scripts') ?>
 
 <?= $this->section('scriptsPlugins') ?>
     <!-- jquery-ui -->
