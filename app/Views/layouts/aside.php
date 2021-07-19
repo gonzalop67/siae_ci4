@@ -62,7 +62,7 @@
                     </li> 
                 <?php } else { ?>
                     <li class="nav-item">                        
-                        <a href="<?php echo base_url() . $menu->mnu_link; ?>" class="nav-link <?= service('request')->uri->getPath() == $menu->mnu_link ? 'active' : '' ?>">
+                        <a href="<?php echo base_url() . '/' . $menu->mnu_link; ?>" class="nav-link <?= service('request')->uri->getPath() == $menu->mnu_link ? 'active' : '' ?>">
                           <i class="nav-icon fas fa-laptop"></i>
                           <p>
                             <?php echo $menu->mnu_texto; ?>
